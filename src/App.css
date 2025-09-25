@@ -1,0 +1,182 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.btn-previous {
+  margin-right: 50px;
+  margin-top: 10px;
+}
+
+.btn-next {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+input[type="radio"] {
+  accent-color: black;
+}
+
+body {
+  background-color:#708993;
+}
+
+.show-score {
+  min-width: 700px;
+  min-height: 300px;
+  padding-top: 50px;
+  border-radius: 10px;
+  background-color: #edede9;
+}
+
+.quiz-app {
+  min-width: 800px;
+  max-width: 800px;
+  min-height: 400px;
+  max-height: 900px;
+  background-color:#DCDCDC;
+  padding: 30px;
+  border-radius: 10px;
+}
+.welcome{
+  padding-top: 100px;
+}
+
+.score-box {
+  margin-top: 40px;
+}
+
+.score-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+  animation: popIn 1s ease forwards;
+}
+.buttons{
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+ul {
+  list-style-type: none;
+}
+input[type="text"]{
+  width: 60%;
+  display: block;
+  padding: 12px 16px;
+  margin: auto;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  
+}
+/* Prompt Box CSS */
+  /* .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+    }
+
+    .modal-overlay.active {
+      visibility: visible;
+    }
+
+    .modal {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .modal input {
+      width: 90%;
+      padding: 8px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+    }
+
+    .modal button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    .modal .cancel {
+      background: #6c757d;
+    } */
+/* Scale & Fade Animation */
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
