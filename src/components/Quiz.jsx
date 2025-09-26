@@ -3,6 +3,7 @@ import { quizQuestions } from './data'
 import Result from './result'
 import ProgressBar from './ProgressBar'
 import '../App.css'
+import LocalStorageRepo from "../repo/localStorageRepo";
 
 function Quiz(props) {
   const [index, setIndex] = useState(0)
@@ -42,14 +43,12 @@ function Quiz(props) {
       const optionArray = options
       const existingData = localStorage.getItem("Responses")
       const data = existingData ? JSON.parse(existingData) : []
-      const newRecord = [{
+      const newRecord = {
         ...optionArray,
         name: props.name
-      }]
-      //console.log('Object converted array', optionsArr)
-      //console.log('Data', newRecord)
+      }
       data.push(newRecord)
-      localStorage.setItem("Responses", JSON.stringify(data) )
+      LocalStorageRepo.save("Responses", data )
 
     }
 
