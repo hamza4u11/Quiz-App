@@ -27,5 +27,4 @@ const LocalStorageRepo = {
     localStorage.clear();
   }
 };
-
 export default LocalStorageRepo;

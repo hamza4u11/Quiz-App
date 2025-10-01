@@ -1,3 +1,4 @@
+/* @import "tailwindcss"; */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -35,7 +36,7 @@ input[type="radio"] {
 }
 
 body {
-  background-color:#708993;
+  background-color: #708993;
 }
 
 .show-score {
@@ -51,11 +52,22 @@ body {
   max-width: 800px;
   min-height: 400px;
   max-height: 900px;
-  background-color:#DCDCDC;
+  background-color: #DCDCDC;
   padding: 30px;
   border-radius: 10px;
 }
-.welcome{
+
+.all-results {
+  min-width: 800px;
+  max-width: 1500px;
+  min-height: auto;
+  /* max-height: 900px; */
+  background-color: #DCDCDC;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.welcome {
   padding-top: 100px;
 }
 
@@ -69,14 +81,17 @@ body {
   color: black;
   animation: popIn 1s ease forwards;
 }
-.buttons{
+
+.buttons {
   padding-top: 50px;
   padding-bottom: 100px;
 }
+
 ul {
   list-style-type: none;
 }
-input[type="text"]{
+
+input[type="text"] {
   width: 60%;
   display: block;
   padding: 12px 16px;
@@ -87,69 +102,202 @@ input[type="text"]{
   outline: none;
   background: #fafafa;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
 }
-/* Prompt Box CSS */
-  /* .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      visibility: hidden;
-    }
 
-    .modal-overlay.active {
-      visibility: visible;
-    }
+.tabs {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+  margin: 40px auto;
+  max-width: 600px;
+}
 
-    .modal {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      width: 280px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
+.tab {
+  width: 50%;
+  padding: 12px 24px;
+  cursor: pointer;
+  color: #6c757d;
+  font-size: 16px;
+  text-decoration: none;
+  position: relative;
+  /* margin: 0 50px;  */
+}
 
-    .modal input {
-      width: 90%;
-      padding: 8px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
+.tab.active {
+  color: #3a3aff;
+  /* blue color */
+  font-weight: 500;
+}
 
-    .modal-actions {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 15px;
-    }
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: #3a3aff;
+  border-radius: 2px;
+}
 
-    .modal button {
-      padding: 6px 12px;
-      border: none;
-      border-radius: 4px;
-      background: #007bff;
-      color: white;
-      cursor: pointer;
-    }
+.tab:hover {
+  color: #3a3aff;
+}
 
-    .modal .cancel {
-      background: #6c757d;
-    } */
+.table-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead {
+  background: #007BFF;
+  color: #fff;
+}
+
+thead th {
+  padding: 14px;
+  font-size: 16px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background 0.3s;
+}
+
+tbody tr:hover {
+  background: #f1f5ff;
+}
+
+tbody td {
+  padding: 12px;
+  font-size: 15px;
+  color: #333;
+}
+
+tbody td:first-child {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+/* */
+.create-quiz {
+  min-width: 800px;
+  max-width: 800px;
+  min-height: 400px;
+  max-height: auto;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  background: #DCDCDC;
+}
+
+.create-quiz h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+input[type="number"] {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+}
+
+.create-quiz-btn {
+  width: 40%;
+  padding: 12px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #357abd;
+}
+
+.question-block {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  /* background-color: #fafafa; */
+}
+
+.question-input {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.option-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+
 /* Scale & Fade Animation */
 @keyframes popIn {
   0% {
     transform: scale(0.5);
     opacity: 0;
   }
+
   50% {
     transform: scale(1.3);
     opacity: 1;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
