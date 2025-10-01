@@ -27,6 +27,8 @@
 }
 
 .btn-next {
+  background-color: #007BFF;
+  color: white;
   margin-top: 10px;
   margin-bottom: 30px;
 }
@@ -68,7 +70,7 @@ body {
 }
 
 .welcome {
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 .score-box {
@@ -80,6 +82,16 @@ body {
   font-weight: bold;
   color: black;
   animation: popIn 1s ease forwards;
+}
+
+.create-quiz-btn {
+  background-color: #007BFF;
+  color: white;
+  float: left;
+  /* Pushes button to the left */
+  margin-left: 120px;
+  margin-top: 10px;
+  /* Makes sure it sticks to the left edge */
 }
 
 .buttons {
@@ -195,8 +207,8 @@ tbody td:first-child {
 /* */
 .create-quiz {
   min-width: 800px;
-  max-width: 800px;
-  min-height: 400px;
+  /* max-width: 800px; */
+  min-height: 500px;
   max-height: auto;
   margin: 50px auto;
   padding: 30px;
@@ -236,7 +248,7 @@ input[type="number"]:focus {
   box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
 }
 
-.create-quiz-btn {
+.generate-quiz-btn {
   width: 40%;
   padding: 12px;
   background: #4a90e2;
@@ -248,9 +260,9 @@ input[type="number"]:focus {
   transition: background 0.3s ease;
 }
 
-button:hover {
+/* button:hover {
   background: #357abd;
-}
+} */
 
 .question-block {
   margin: 20px 0;

@@ -47,9 +47,7 @@ function Quiz(props) {
       }
       data.push(newRecord)
       LocalStorageRepo.save("Responses", data)
-
     }
-
   }
   const previous = () => {
 
@@ -87,7 +85,6 @@ function Quiz(props) {
           ))}
           <div className="buttons">
             <button className='btn-previous' onClick={previous} disabled={index == 0}  >Previous</button>
-
             {
               isSubmit ? (
                 <Link to="/results"> <button className='btn-next' disabled={!options[index]}  > Submit</button></Link>
