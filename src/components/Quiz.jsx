@@ -4,16 +4,24 @@ import ProgressBar from './ProgressBar'
 import '../App.css'
 import LocalStorageRepo from "../repo/localStorageRepo";
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { setResult } from './action'
+import { useSelector } from 'react-redux'
 
-function Quiz(props) {
+function Quiz() {
   const [index, setIndex] = useState(0)
   const [score, setScore] = useState(0)
   const [showScore, setShowScore] = useState(false)
   const [options, setOptions] = useState([])
   const [isSubmit, setIsSubmit] = useState(false)
   const [currentQuestion, setCurrentQuestion] = useState(0)
+  const dispatch = useDispatch()
+  const name = useSelector((state) => state.name)
 
-  const userName = props.name
+
+  // const userName = props.name
+  let newScore = score
+  // const enterData = LocalStorageRepo.save("Questions", quizQuestions)
 
   const total = quizQuestions.length;
   const handleOptionChange = (opt) => {
@@ -23,6 +31,7 @@ function Quiz(props) {
     }))
   }
   const next = () => {
+
     const questionLength = quizQuestions.length - 2
 
     if (index === questionLength) {
@@ -30,9 +39,14 @@ function Quiz(props) {
     }
 
     if (options[index] === quizQuestions[index].answer) {
-      setScore(score + 1)
+      // setScore(score + 1)
+      newScore = score + 1
+      setScore(newScore)
       setCurrentQuestion(currentQuestion + 1)
     }
+    dispatch(setResult(newScore))
+    // console.log("Dispatched Score:", dispatch(setResult(score)));
+
     if (index < quizQuestions.length - 1) {
       setIndex(index + 1)
 
@@ -43,11 +57,13 @@ function Quiz(props) {
       const data = existingData ? JSON.parse(existingData) : []
       const newRecord = {
         ...optionArray,
-        name: props.name1
+        name: name,
+        score: newScore
       }
       data.push(newRecord)
       LocalStorageRepo.save("Responses", data)
     }
+
   }
   const previous = () => {
 
@@ -56,9 +72,11 @@ function Quiz(props) {
       setCurrentQuestion(currentQuestion - 1)
     }
     if (!score == 0) {
-      setScore(score - 1)
+      newScore = score - 1
+      setScore(newScore)
     }
   }
+  console.log(score)
   //console.log(score)
   return (
     <>
@@ -87,7 +105,7 @@ function Quiz(props) {
             <button className='btn-previous' onClick={previous} disabled={index == 0}  >Previous</button>
             {
               isSubmit ? (
-                <Link to="/results"> <button className='btn-next' disabled={!options[index]}  > Submit</button></Link>
+                <Link to="/results"> <button className='btn-next' onClick={next} disabled={!options[index]}  > Submit</button></Link>
               ) : (
                 <button className='btn-next' onClick={next} disabled={!options[index]}  > Next</button>
 

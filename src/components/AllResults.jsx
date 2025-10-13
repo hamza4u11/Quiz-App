@@ -1,15 +1,20 @@
 import React from 'react';
 import LocalStorageRepo from '../repo/localStorageRepo';
 import { quizQuestions } from './data'
+import { useSelector } from 'react-redux'
+
 
 
 
 function AllResults() {
     const getResults = LocalStorageRepo.get("Responses")
+    const name = useSelector((state) => state.name) // read from Redux
+
     // console.log(getResults)
     return (
         <div className="all-results">
             <h1>All Results </h1>
+            <h1>{name}</h1>
             <div className="" style={{ width: "auto ", margin: "auto", padding: "20px" }}>
                 <table>
                     <thead>

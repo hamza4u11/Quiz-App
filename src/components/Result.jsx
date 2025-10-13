@@ -5,11 +5,17 @@ import { quizQuestions } from './data';
 import PromptBox from './promptBox';
 import AllResults from './AllResults'
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux'
+
 
 
 function Result(props) {
     const [tryQuiz, setTryQuiz] = useState(false)
     const optionsArr = Object.entries(props.options || []);
+    const result = useSelector((state) => state.result)
+    const name = useSelector((state) => state.name)
+
+
 
     return (
         <>
@@ -19,12 +25,12 @@ function Result(props) {
                         <div className="tab active">Results</div>
                         <div className="tab" ><Link to="/all-results">All Results</Link></div>
                     </div>
-                    <h1>{props.name}</h1>
+                    <h1>name:{name}</h1>
                     <h1 className="">
                         Result Dashboard
                     </h1>
                     <h2 className="score-text">
-                        🎉 Your Score: {props.score} / {props.total} 🎉
+                        🎉 Your Score: {result} 🎉
                     </h2>
                     {/* Show selected options */}
                     <div className="answers-list">
